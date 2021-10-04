@@ -23,11 +23,13 @@ from selenium.webdriver.support import expected_conditions as EC  # available si
 
 nowTime = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-')
 chrome_options = webdriver.ChromeOptions()
+prefs = {'profile.managed_default_content_settings.images': 2}
+chrome_options.add_experimental_option('prefs',prefs)
 # chrome_options.add_argument('--headless')
 chrome_options.add_argument('log-level=3')
 # chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--ignore-certificate-errors')
-# chrome_options.add_argument('--disable-images')
+chrome_options.add_argument('--disable-images')
 chrome_options.add_argument('--start-maximized')
 
 pluginpath = os.path.join(sys.path[0], 'plugin', 'sellersprite-amazon-resea.crx')
